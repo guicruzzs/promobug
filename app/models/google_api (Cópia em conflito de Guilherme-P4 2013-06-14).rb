@@ -64,6 +64,8 @@ private
 
 		#resposta
 		response = http.request(request)
+		puts "---------------- get response"
+		puts response.body.inspect
 		response.body
 	end
 
@@ -78,18 +80,11 @@ private
 		end
 		
 		response = https.request(request)
-		puts response.body
-		# http = Net::HTTP.new(uri.host, uri.port) 
-		# http.use_ssl = true
-		# request = Net::HTTP::Post.new(uri.path) 
-		# request.set_form_data(params)
-		# #get
-		# request = Net::HTTP::Post.new( uri.path+ '?' + request.body )
+		
+		puts "---------------- post response"
+		puts response.body.inspect
 
-		# #resposta
-		# response = http.request(request)
-		# puts response.inspect
-		# response.body
+		puts response.body
 	end
 
 	def self.respond_to_hash(data)

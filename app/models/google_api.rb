@@ -84,6 +84,7 @@ class GoogleApi
 		request = Net::HTTP::Get.new(uri.path) 
 		request.set_form_data(params)
 		#get
+		puts request.body.inspect
 		request = Net::HTTP::Get.new( uri.path+ '?' + request.body )
 		puts request.inspect
 		puts uri.host

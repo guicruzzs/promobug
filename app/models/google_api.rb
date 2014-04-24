@@ -88,7 +88,7 @@ class GoogleApi
 		puts request.inspect
 		puts uri.host
 		puts uri.path
-		puts request.body
+		puts request.body.inspect
 		#resposta
 		response = http.request(request)
 		puts "---------------- get response"

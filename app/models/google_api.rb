@@ -71,6 +71,9 @@ class GoogleApi
 
 	def self.get(uri,params={})
 		#conexao
+		puts "--------------- get"
+		puts uri
+		puts params.inspect
 		uri = URI.parse(uri)
 		
 		http = Net::HTTP.new(uri.host, uri.port) 
@@ -85,11 +88,17 @@ class GoogleApi
 
 		#resposta
 		response = http.request(request)
+		puts "---------------- get response"
+		puts response.body.inspect
 		response.body
 	end
 
 	def self.post(uri,params={})
 		#conexao
+		puts "--------------- post"
+		puts uri
+		puts params.inspect
+
 		url = URI.parse(uri)
 		req = Net::HTTP::Post.new(url.request_uri)
 
@@ -100,6 +109,8 @@ class GoogleApi
   		http.ca_file = File.join(Rails.root.to_s, 'config', 'cacert.pem')
 		
 		response = http.request(req)
+		puts "---------------- get response"
+		puts response.body.inspect
 		response.body
 	end
 

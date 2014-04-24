@@ -15,6 +15,7 @@ Promobug::Application.routes.draw do
   match 'google_login' => 'home#google_login'
   match 'google_login_response' => 'home#google_login_response'
   match 'list_google_agendas' => 'home#list_google_agendas'
+  match 'check_new_offers' => 'home#check_new_offers'
 
   #agendas
   match 'agendas/inactivate/:id' => 'agendas#inactivate'

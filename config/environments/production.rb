@@ -61,4 +61,6 @@ Promobug::Application.configure do
   GOOGLE_API_KEY = "AIzaSyBFheU3FLhas3JYYUcVu2Z9fvKleKuZKvA"
   # variaveis globais para o sistema
   CRYPT_KEY = "b678ijbvft6uir56ujft67i78oqoiu212013hfwdo0"
+
+  RELEASE_CODE ="a89kjh324kj234k09fddf0s8j234kia"
 end

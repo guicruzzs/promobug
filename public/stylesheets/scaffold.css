@@ -98,7 +98,7 @@ h1{
 #bottom_bar p{
   color: #FFF;
   font-size: 9px;  
-  margin-top: 15px;
+  margin-top: 10px;
 }
 #main_sheet{
   background-color: #FFFFFF;
@@ -398,4 +398,9 @@ table .odd_line{
 
 .field label{
   font-weight: bolder;
+}
+
+.welcome{
+  text-align: center;
+  padding-top : 28px;
 }

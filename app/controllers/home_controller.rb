@@ -22,4 +22,12 @@ class HomeController < ApplicationController
   	@data_response = GoogleCalendar.list_agendas(token_access)
   end
 
+  def check_new_offers
+    success = false
+    if params[:release_code] == RELEASE_CODE
+      success = true
+      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    end
+    render :json=>{:authenticated=>success, :runned=>success}
+  end
 end

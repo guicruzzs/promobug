@@ -23,4 +23,12 @@
 			</div>
 		<% end %>
 	</div>
+<% else %>
+	<div class="welcome">
+		<h1> Bem vindo </h1>
+		</br>
+		<div class="button">
+			<%= link_to "Login", {:controller=>"home", :action=>"google_login"} %>
+		</div>
+	</div>
 <% end %>

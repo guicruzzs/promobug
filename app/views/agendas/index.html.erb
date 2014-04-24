@@ -1,0 +1,40 @@
+<h1>Filtros</h1>
+
+<% unless @agendas.empty? %>
+  <div class="index_list">  
+    <table class="filter_table">
+      <tr>
+        <th>Agenda</th>
+        <th>Status</th>
+        <th>Criado em</th>
+        <th>Desejado(s)</th>
+        <th>Indesejado(s)</th>
+        <th></th>
+      </tr>
+
+    <% @agendas.each_with_index do |agenda, idx| %>
+      <% interest = agenda.interest %>
+      <tr <%= 'class="odd_line"'.html_safe if !idx.odd? %>>
+        <td><%= agenda.name %></td>
+        <td><%= (agenda.status)? "<b>Ativo</b>".html_safe : "Inativo" %></td>
+        <td><%= l(agenda.created_at, :format=>:long)%></td>
+        <td><%= interest.wanted %></td>
+        <td><%= interest.unwanted %></td>
+        <td>
+          <div class="inactivate_button">
+              <%= link_to('Desativar', {:action=>"inactivate", :id=>agenda.id}, :confirm => 'Deseja inativar esse filtro?') if agenda.status %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+<% else %>
+  <div class="empty_list">
+    Sem filtros Cadastrados
+  </div>
+<% end %>
+</br>
+<div class="button">
+  <%= link_to 'Novo Filtro', new_agenda_path %>
+</div>

@@ -1,0 +1,18 @@
+<div id="wanteds" class="field">
+  <label>Desejado(s)</label><br />
+  <%= f.text_field :wanted %>
+</div>
+
+<div style="clear:both;"></div>
+
+<div id="unwanteds" class="field">
+  <label>Indesejado(s)</label><br />
+  <%= f.text_field :unwanted %>
+</div>
+
+<div style="clear:both;"></div>
+
+<%= f.hidden_field :wanted_regexp %>
+<%= f.hidden_field :unwanted_regexp %>
+
+<%= f.hidden_field :status, :value=>1 %>

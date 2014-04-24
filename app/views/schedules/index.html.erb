@@ -1,0 +1,33 @@
+<h1>Histórico de Alertas</h1>
+
+<% unless @schedules.empty? %>
+  <div class="index_list">  
+    <table class="history_table">
+      <tr>
+        <th>Desejado(s)</th>
+        <th>Indesejado(s)</th>
+        <th>Promoção </th>
+        <th>Criado Interesse em </th>
+        <th>Calendário</th>
+        <th>Alertado em</th>
+      </tr>
+
+    <% @schedules.each_with_index do |schedule, idx| %>
+      <% interest = schedule.interest %>
+      <% offer = schedule.offer %>
+      <tr <%= 'class="odd_line"'.html_safe if !idx.odd? %>>
+        <td><%= interest.wanted%></td>
+        <td><%= interest.unwanted%></td>
+        <td><%= link_to(offer.twitter_message.gsub(offer.link,""), offer.link)%></td>
+        <td><%= l interest.created_at, :format=>:standart %></td>
+        <td><%= interest.agenda.name %></td>
+        <td><%= l schedule.created_at, :format=>:standart %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+<% else %>
+  <div class="empty_list">
+    Histórico de notificações vazio
+  </div>
+<% end %>

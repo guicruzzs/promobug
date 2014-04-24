@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+	<h1>Promoções Recentes</h1>
+
+	<div id="recent_offers">
+		<% @recent_offers.each do |offer| %>
+			<div class="offer_box">
+				<div class="twitter_address">
+					@hardmob_promo
+				</div>
+				<div class="title">
+					<%= title = offer.twitter_message.match(/^[\[|\(].*[\]|\)]/) %>
+				</div>
+				<div class="description">
+					<%= offer.twitter_message.gsub(title.to_s, "").gsub(offer.link, "") %>
+				</div>
+				<div class="timeliness">
+					<%= time_ago_in_words offer.created_at%>
+				</div>
+				<div class="promo_link">
+					<%= link_to "Confira", offer.link%>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		<% end %>
+	</div>
+<% end %>

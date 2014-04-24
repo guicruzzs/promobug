@@ -1,0 +1,11 @@
+<div style='display:none'>
+	<%= @login_content.html_safe %>
+</div>
+
+<script>
+	jQuery(document).ready(function(){
+		link_page = jQuery('a').attr('href');
+		window.location.href=link_page;
+	});
+		
+</script>

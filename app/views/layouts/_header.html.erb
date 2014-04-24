@@ -1,0 +1,23 @@
+<div class="home">
+    <%= link_to({:controller=>"home", :action=>"index"}, {}) do 
+   		image_tag("logo.png", :size=> "40x40") + "promobug"
+    end %>
+</div>
+
+<% if user_signed_in? %>
+    <div class="filter">
+    	<%= link_to({:controller=>"agendas", :action=>"index"}, {}) do 
+	   		image_tag("icon_filter.png", :size=> "40x40") + "filtro"
+	    end %>
+    </div>
+    
+    <div class="history">
+    	<%= link_to({:controller=>"schedules", :action=>"index"}, {}) do 
+	   		image_tag("icon_history.png", :size=> "40x40") + "histórico"
+	    end %>
+    </div>
+    <div id="logged_box">
+	    <%= current_user.email %></br>
+	    <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+	</div>
+<% end %>

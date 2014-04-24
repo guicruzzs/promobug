@@ -1,0 +1,15 @@
+<%= debug @data_response %>
+
+<div>
+	<% @data_response["items"].each do |agenda|%>
+		<div class="agenda_box">
+			<div class="agenda_image" style="background-color:<%= agenda['backgroundColor']%>;"><%= image_tag "icon_calendar.png", :size=>"51x47" %></div>
+			<div class="agenda_data">
+				<%= agenda["summary"] %>
+				<%= hidden_field_tag 'google_code', agenda["id"] %>
+				<%= hidden_field_tag 'name', agenda["summary"] %>
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	<% end %>
+</div>

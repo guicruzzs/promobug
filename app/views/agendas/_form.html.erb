@@ -1,0 +1,43 @@
+<%= form_for(@agenda) do |f| %>
+  <% if @agenda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
+
+      <ul>
+      <% @agenda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :user_id, :value=>current_user.id %>
+  
+  <div id= "agendas_box_list" class="field">
+    <label>Agenda Google</label><br />
+    <div class="agendas_form_list">
+      <% @data_response["items"].each do |agenda|%>
+        <div class="agenda_box">
+          <%= f.radio_button :google_code, agenda["id"], :onclick=>"fill_name('#{agenda["summary"]}')" %>
+          <div class="agenda_image" style="background-color:<%= agenda['backgroundColor']%>;"><%= image_tag "icon_calendar.png", :size=>"41x37" %></div>
+          <div class="agenda_data">
+            <%= agenda["summary"] %>
+          </div>
+        </div>
+        <div style="clear:both;"></div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :status, :value=>1 %>
+
+  <%= fields_for "agenda[interest_attributes]", @agenda.interest do |interest_form| %>
+    <%= render :partial=>"interests/form", :locals=>{:f=>interest_form} %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<div style="display:none">
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	  <%= f.hidden_field :email, :value=>params[:email] %>
+	  <%= f.hidden_field :password, :value=>params[:password] %>
+
+	  <%= f.submit "Sign in" %>
+	<% end %>
+</div>
+
+<script>
+	jQuery(document).ready(function(){
+		jQuery("form").submit();
+	});
+</script>

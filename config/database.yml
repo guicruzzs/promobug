@@ -1,0 +1,25 @@
+# common: &common
+#   adapter: mysql2
+#   encoding: utf8
+#   reconnect: true
+#   pool: 5
+#   username: root
+#   password: aguia
+#   host: localhost
+
+# development:
+#   <<: *common
+#   database: promobug_development
+# production:
+#   <<: *common
+#   database: promobug_production
+# test:
+#   <<: *common
+#   database: promobug_test
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5

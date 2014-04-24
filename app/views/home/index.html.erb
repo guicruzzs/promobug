@@ -8,7 +8,7 @@
 					@hardmob_promo
 				</div>
 				<div class="title">
-					<%= title = offer.twitter_message.match(/^[\[|\(].*[\]|\)]/) %>
+					<%= title = offer.twitter_message.match(/^[\[|\(].{1,40}[\]|\)]/) %>
 				</div>
 				<div class="description">
 					<%= offer.twitter_message.gsub(title.to_s, "").gsub(offer.link, "") %>

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :status, :code_token, :access_token, :access_token_time
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :status, :code_token, :access_token, :access_token_time, :refresh_token, :expires_in
 
   has_one :agenda
   
@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
 			user.access_token = user_data_response["access_token_request"]["access_token"]
 			user.refresh_token = user_data_response["access_token_request"]["refresh_token"] if user_data_response["access_token_request"]["refresh_token"]
 			user.expires_in = user_data_response["access_token_request"]["expires_in"]
+			user.access_token_time = DateTime.now
 			user.save
 		end
 

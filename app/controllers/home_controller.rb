@@ -26,7 +26,7 @@ class HomeController < ApplicationController
     success = false
     if params[:release_code] == RELEASE_CODE
       success = true
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      Offer.verify
     end
     render :json=>{:authenticated=>success, :runned=>success}
   end

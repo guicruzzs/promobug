@@ -11,7 +11,7 @@
 					<%= title = offer.twitter_message.match(/^[\[|\(].{1,40}[\]|\)]/) %>
 				</div>
 				<div class="description">
-					<%= offer.twitter_message.gsub(title.to_s, "").gsub(offer.link, "") %>
+					<%= offer.twitter_message.gsub(title.to_s, "").gsub(offer.link, "").html_safe %>
 				</div>
 				<div class="timeliness">
 					<%= time_ago_in_words offer.created_at%>

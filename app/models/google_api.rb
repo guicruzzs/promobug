@@ -91,6 +91,7 @@ class GoogleApi
 		puts uri.path
 		puts request.body.inspect
 		#resposta
+		http.set_debug_output $stderr
 		response = http.request(request)
 		puts "---------------- get response"
 		puts response.body.inspect

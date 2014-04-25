@@ -11,8 +11,9 @@ class Schedule < ActiveRecord::Base
 	user = agenda.user
 	
 	user.check_token_expiration
+	user = agenda.user
 	
-	GoogleCalendar.create_event(user.access_token, offer, agenda.google_code)
+	GoogleCalendar.create_event(user.access_token, offer, agenda)
 	puts "SCHEDULING'S END"
   end
 end

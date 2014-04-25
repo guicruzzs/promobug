@@ -15,18 +15,18 @@ class GoogleCalendar
 		user = User.first
 		offer = Offer.last
 		agenda = Agenda.last
-		GoogleCalendar.create_event(user.access_token, offer, agenda.google_code)
+		GoogleCalendar.create_event(user.access_token, offer, agenda)
 	end
 
-	def self.create_event(access_token, offer, google_code)
-		uri = URL_GOOGLE_CALENDAR+"calendars/#{google_code}/events?sendNotifications=true&fields=summary&description%2Cend%2Cstart&key=#{GOOGLE_API_KEY}"
+	def self.create_event(access_token, offer, agenda)
+		uri = URL_GOOGLE_CALENDAR+"calendars/#{agenda.google_code}/events?sendNotifications=true&fields=summary&description%2Cend%2Cstart&key=#{GOOGLE_API_KEY}"
 		
 		start_time =  (Time.now).xmlschema
 		end_time =   (Time.now + 5.minutes).xmlschema
 		
 		data = {:end              => {:dateTime=> end_time},
 				:start            => {:dateTime=> start_time},
-				:summary          => "#{offer.twitter_message[0..(55 - offer.link.size)]}... #{offer.link}",
+				:summary          => "#{offer.twitter_message[0..(62 - offer.link.size - agenda.name.size)]}... #{offer.link}",
 				:description      => offer.twitter_message}
 		
 		params = {}

@@ -52,8 +52,15 @@ class User < ActiveRecord::Base
 		puts data_response.inspect
 		
 		if data_response["access_token"]
+			puts "self.access_token"
+			puts self.access_token
 			self.access_token = data_response["access_token"]
+			puts self.access_token
+
+			puts "self.expires_in"
+			puts self.expires_in
 			self.expires_in = data_response["expires_in"]
+			puts self.expires_in
 			self.save
 		end	
 	end
@@ -65,6 +72,7 @@ class User < ActiveRecord::Base
 
 	def check_token_expiration
 		if (Time.now > (self.updated_at+(self.expires_in-60).seconds))
+			puts "----- NEED TO REFRESH TOKEN"
 			self.refresh_access_token
 		end
 	end

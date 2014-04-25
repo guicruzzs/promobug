@@ -21,5 +21,5 @@
 set :environment, 'development'
 
 every 1.minute do
-   runner 'Offer.verify'
+   runner 'Post.run_bell'
 end

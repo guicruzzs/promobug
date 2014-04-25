@@ -74,7 +74,7 @@ class GoogleApi
 		uri = URI.parse(uri)
 		
 		http = Net::HTTP.new(uri.host, uri.port) 
-		http.use_ssl = true
+		http.use_ssl = (uri.scheme == "https")
 		http.verify_mode = OpenSSL::SSL::VERIFY_PEER
   		http.ca_file = File.join(Rails.root.to_s, 'config', 'cacert.pem')
 		

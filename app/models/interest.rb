@@ -42,10 +42,12 @@ class Interest < ActiveRecord::Base
 
   def load_regexp
     puts "LOAD REGEXP"
-  	self.wanted = self.wanted_regexp
-    self.unwanted = self.unwanted_regexp
-    load_wanted_wanted_regexp
-  	load_unwanted_wanted_regexp
+  	if self.status == Interest::STATUS_ATIVO
+      self.wanted = self.wanted_regexp
+      self.unwanted = self.unwanted_regexp
+      load_wanted_wanted_regexp
+    	load_unwanted_wanted_regexp
+    end
   end
 
   def clear_to_form

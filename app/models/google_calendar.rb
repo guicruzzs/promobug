@@ -21,8 +21,8 @@ class GoogleCalendar
 	def self.create_event(access_token, offer, google_code)
 		uri = URL_GOOGLE_CALENDAR+"calendars/#{google_code}/events?sendNotifications=true&fields=summary&description%2Cend%2Cstart&key=#{GOOGLE_API_KEY}"
 		
-		start_time =  (Time.now - 3.hours).xmlschema
-		end_time =   (Time.now - 3.hours + 5.minutes).xmlschema
+		start_time =  (Time.now).xmlschema
+		end_time =   (Time.now + 5.minutes).xmlschema
 		
 		data = {:end              => {:dateTime=> end_time},
 				:start            => {:dateTime=> start_time},

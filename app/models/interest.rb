@@ -16,7 +16,7 @@ class Interest < ActiveRecord::Base
   end
 
   def self.test
-    offer = Offer.last
+    offer = Offer.find 19
     Interest.verify(offer)
     puts "FIM TESTE"
   end

@@ -407,24 +407,30 @@ table .odd_line{
 
 table .wanted{
   padding: 0px;
+  width: 150px;
 }
 
 table .unwanted{
   padding: 0px;
+  width: 150px;
 }
 
 table .sale{
   padding: 0px;
+  width: 185px ;
 }
 
 table .created_at{
   padding: 0px;
+  width: 100px;
 }
 
 table .agenda{
   padding: 0px;
+  width: 150px;
 }
 
 table .alerted_at{
   padding: 0px;
+  width:  90px;
 }

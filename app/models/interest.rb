@@ -43,8 +43,8 @@ class Interest < ActiveRecord::Base
   def load_regexp
     puts "LOAD REGEXP"
   	if self.status == Interest::STATUS_ATIVO
-      self.wanted = self.wanted_regexp
-      self.unwanted = self.unwanted_regexp
+      self.wanted = self.wanted_regexp.gsub(",", ",\s")
+      self.unwanted = self.unwanted_regexp.gsub(",", ",\s")
       load_wanted_wanted_regexp
     	load_unwanted_wanted_regexp
     end

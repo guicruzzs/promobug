@@ -2,7 +2,15 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.xml
   def index
-    @schedules = Schedule.all
+    user = current_user
+    
+    # treat this a better way later
+    unless user.email == "guicruz.zs@gmail.com"
+      @schedules = Schedule.joins("LEFT JOIN interests ON interests.id = schedules.interest_id 
+                                   LEFT JOIN agendas ON agendas.id = interests.agenda_id AND agendas.user_id = #{user.id}")
+    else
+      @schedules = Schedule.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

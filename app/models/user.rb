@@ -75,10 +75,7 @@ class User < ActiveRecord::Base
 
 	def check_token_expiration
 		puts "----- check token expiration"
-		puts (Time.now.in_time_zone("Brasilia") > (self.updated_at+(self.expires_in-60).seconds))
-		puts Time.now.in_time_zone("Brasilia")
-		puts (self.updated_at+(self.expires_in-60).seconds)
-		if (Time.now.in_time_zone("Brasilia") > (self.updated_at+(self.expires_in-60).seconds))
+		if (Time.now > (self.updated_at+(self.expires_in-60).seconds))
 			puts "----- NEED TO REFRESH TOKEN"
 			self.refresh_access_token
 		end

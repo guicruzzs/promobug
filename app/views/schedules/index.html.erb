@@ -4,24 +4,24 @@
   <div class="index_list">  
     <table class="history_table">
       <tr>
-        <th>Desejado(s)</th>
-        <th>Indesejado(s)</th>
-        <th>Promoção </th>
-        <th>Criado Interesse em </th>
-        <th>Calendário</th>
-        <th>Alertado em</th>
+        <th><div class="wanted">Desejado(s)</div></th>
+        <th><div class="unwanted">Indesejado(s)</div></th>
+        <th><div class="sale">Promoção</div></th>
+        <th><div class="created_at">Criado Interesse em</div></th>
+        <th><div class="agenda">Calendário</div></th>
+        <th><div class="alerted_at">Alertado em</div></th>
       </tr>
 
     <% @schedules.each_with_index do |schedule, idx| %>
       <% interest = schedule.interest %>
       <% offer = schedule.offer %>
       <tr <%= 'class="odd_line"'.html_safe if !idx.odd? %>>
-        <td><%= interest.wanted%></td>
-        <td><%= interest.unwanted%></td>
-        <td><%= link_to(offer.twitter_message.gsub(offer.link,""), offer.link)%></td>
-        <td><%= l interest.created_at, :format=>:standart %></td>
-        <td><%= interest.agenda.name %></td>
-        <td><%= l schedule.created_at, :format=>:standart %></td>
+        <td><div class="wanted"><%= interest.wanted%></div></td>
+        <td><div class="unwanted"><%= interest.unwanted%></div></td>
+        <td><div class="sale"><%= link_to(offer.twitter_message.gsub(offer.link,""), offer.link)%></div></td>
+        <td><div class="created_at"><%= l interest.created_at, :format=>:standart %></div></td>
+        <td><div class="agenda"><%= interest.agenda.name %></div></td>
+        <td><div class="alerted_at"><%= l schedule.created_at, :format=>:standart %></div></td>
       </tr>
     <% end %>
     </table>

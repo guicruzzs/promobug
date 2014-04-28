@@ -16,8 +16,7 @@ class GoogleApi
 		puts "------------------------------------ BODY"
 		puts body.inspect
 		body
-		if body.match("Moved Tempora
-			rily")
+		if body.match("Moved Temporarily")
 			body.match(/<A(.*)A>/)[0]
 		end
 
@@ -58,9 +57,6 @@ class GoogleApi
 	end
 
 	def self.refresh_the_token(user)
-		puts "---- refresh the token"
-		puts user.inspect
-
 		uri = URL_GOOGLE_OAUTH + "token"
 		params = {'client_id'=> CLIENT_ID,
 				  'client_secret'=> GOOGLE_CLIENT_SECRET,

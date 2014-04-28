@@ -22,6 +22,7 @@ class Interest < ActiveRecord::Base
   end
 
   def self.verify(offer)
+    offer.twitter_message.gsub!(offer.link, "")
   	puts "INTEREST.VERIFY"
   	puts offer.inspect
 

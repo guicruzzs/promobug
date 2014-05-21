@@ -1,9 +1,12 @@
-<%= javascript_include_tag "tag_box" %>
+<%= javascript_include_tag "tag_box", "jquery-ui-1.10.4.custom.min" %>
+
+
 <h1>Novo Filtro</h1>
 <div class="filter_form">
+	<div id="modal_div" style="display:none;"> </br> </br> Solicitando criação de agenda... <%= image_tag "ajax-loader.gif" %></div>
 	<%= render 'form' %>
 </div>
 </br>	
 <div class="button">
-	<%= link_to 'Voltar', agendas_path %>
+	<%= link_to 'Voltar', agendas_path, :id=>"btn_back" %>
 </div>

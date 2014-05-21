@@ -27,12 +27,12 @@ Promobug::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # variaveis globais para o google
-  URL_BASE = "http://crosspromobug.herokuapp.com/google_login_response"
+  URL_BASE = "http://www.google.com.br/"
   URL_GOOGLE_OAUTH = "https://accounts.google.com/o/oauth2/"
   URL_GOOGLE_API = "https://www.googleapis.com/"
   URL_GOOGLE_CALENDAR = URL_GOOGLE_API + "calendar/v3/"
-  CLIENT_ID = '342833357798-tirkltmccr2dhdbea1curhpcain7aurj.apps.googleusercontent.com'
-  GOOGLE_CLIENT_SECRET = 'CoDt1nhyhck8RMviMQxQ29F7'
+  CLIENT_ID = '342833357798-4kci6gd82piori8d124tnvvuam7t6ugi.apps.googleusercontent.com'
+  GOOGLE_CLIENT_SECRET = 'SjHhFjRhBlnL8sbYQpQ6fuNj'
   
   GOOGLE_API_KEY = "AIzaSyBFheU3FLhas3JYYUcVu2Z9fvKleKuZKvA"
   # variaveis globais para o sistema

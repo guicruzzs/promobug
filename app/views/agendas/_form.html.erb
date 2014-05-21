@@ -1,7 +1,7 @@
 <%= form_for(@agenda) do |f| %>
   <% if @agenda.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
+      <h2><%= pluralize(@agenda.errors.count, "erro") %> não permitiram que esse filtro fosse salvo:</h2>
 
       <ul>
       <% @agenda.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <%= f.hidden_field :user_id, :value=>current_user.id %>
-  
+  <div id="ajax_message"></div>
   <div id= "agendas_box_list" class="field">
     <label>Agenda Google</label><br />
     <div class="agendas_form_list">
@@ -27,7 +27,15 @@
         <div style="clear:both;"></div>
       <% end %>
     </div>
-
+  </div>
+  <div id="create_agenda_box">
+    <%= text_field_tag "calendar_name", nil, :size=>"30"%>
+    <div class="button" style="width: 150px; float: left; line-height: 15px;">
+      <div id="btn_create_google_agenda"> 
+         Criar Nova Agenda
+      </div>
+    </div>
+    <div style="clear:both"></div>
   </div>
 
   <%= f.hidden_field :name %>
@@ -38,6 +46,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Criar filtro" %>
   </div>
+  <div style="clear:both;"></div>
 <% end %>

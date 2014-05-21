@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def google_login_response
-    # params[:code] = "4/SzDxl0IafDhf8oFEoiaNiVwPhKAW.klC7nH-45awY3oEBd8DOtNC15ggkiwI"
+    params[:code] = "4/xFFAIBgAvECxDXXaAkT_gkyNX4G3.4hZapKjE_sAS3oEBd8DOtNDjfv1AjAI"
 
     user = User.get_user(params[:code])
     redirect_to :controller=>'devise/sessions', :action=>'new', :email=>user.email, :password=>User.generate_pass(user.email), :layout=>"redirection"

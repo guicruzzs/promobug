@@ -20,6 +20,8 @@ Promobug::Application.routes.draw do
   #agendas
   match 'agendas/inactivate/:id' => 'agendas#inactivate'
 
+  match 'google_agenda/create_google_agenda' => 'agendas#create_google_agenda'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

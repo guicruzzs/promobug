@@ -26,4 +26,9 @@ class Agenda < ActiveRecord::Base
   def clear_to_form
     interest.clear_to_form
   end
+
+  def self.create_google_agenda(user,name)
+    GoogleCalendar.create_calendar(user.access_token, name)
+    # {"kind"=>"calendar#calendar", "id"=>"4i0duieojvusci5sjdisnpp0k8@group.calendar.google.com", "summary"=>"Agenda Teste", "etag"=>"\"SaH0JPgxpZtQtKmztOIhZtDaAls/hvTted6vG_-iOf99UezkJIeL0Fo\""}
+  end
 end

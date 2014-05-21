@@ -1,0 +1,23 @@
+console.log("Rodando em ajax");
+jQuery("#modal_div").dialog("close");
+
+<% if @data_response[:success] %>
+	console.log("Sucesso!");
+	content_new_list = "";
+		<% @data_response[:data]["items"].each do |google_calendar| %>
+		   content_new_list += '<div class="agenda_box">';
+	       content_new_list += 		'<input name="agenda[google_code]" onclick="fill_name("<%= google_calendar["summary"] %>")" type="radio" value="<%= google_calendar["id"] %>">';
+	       content_new_list += 		'<div class="agenda_image" style="background-color:<%= google_calendar["backgroundColor"] %>;"><img alt="Icon_calendar" height="37" src="/images/icon_calendar.png?1367961274" width="41"></div>';
+	       content_new_list += 		'<div class="agenda_data">';
+	       content_new_list += 			'<%= google_calendar["summary"] %>';
+	       content_new_list += 		'</div>';
+	       content_new_list += '</div>';
+	       content_new_list += '<div style="clear:both;"></div>';
+      <% end %>
+      jQuery(".agendas_form_list").html(content_new_list);
+      jQuery("#calendar_name").val("");
+     console.log(content_new_list);
+<% else %>
+	console.log("Falha!");
+	alert("<%= @data_response[:error] %>");
+<% end %>

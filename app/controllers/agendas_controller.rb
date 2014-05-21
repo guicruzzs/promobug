@@ -99,6 +99,26 @@ class AgendasController < ApplicationController
     end
   end
 
+  def create_google_agenda
+    puts params.inspect
+    unless params[:agenda_name].empty?
+      @data_response = Agenda.create_google_agenda(current_user, params[:agenda_name])
+      
+      load_google_agendas
+      puts "olha o dado......"
+      puts @data_response.inspect
+      data = @data_response
+      
+      @data_response ={}
+      @data_response[:success] = true
+      @data_response[:data] = data
+    else
+      @data_response = {}
+      @data_response[:error] = "O nome da agenda não pode estar em branco."
+      @data_response[:success] = false
+    end
+  end
+
   private
   def load_google_agendas
     puts "------ ooooooooooooooooo"

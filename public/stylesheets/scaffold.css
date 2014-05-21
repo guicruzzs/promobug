@@ -203,6 +203,16 @@ div.field, div.actions {
   font-weight: bolder;
 }
 
+.button #btn_create_google_agenda{
+  background-color: #096;
+  color: #FFF;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px #999;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
 #notice {
   color: green;
 }
@@ -280,7 +290,17 @@ div.field, div.actions {
 }
 
 #agendas_box_list{
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+#create_agenda_box{
+  margin-bottom: 20px;
+}
+
+#create_agenda_box input{
+  float:left;
+  padding: 4px;
+  margin: 0 15px 4px 10px;
 }
 
 #wanteds{
@@ -433,4 +453,8 @@ table .agenda{
 table .alerted_at{
   padding: 0px;
   width:  90px;
+}
+
+#btn_back{
+  background-color: #069;
 }

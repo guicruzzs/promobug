@@ -2,7 +2,6 @@ console.log("Rodando em ajax");
 jQuery("#modal_div").dialog("close");
 
 <% if @data_response[:success] %>
-	console.log("Sucesso!");
 	content_new_list = "";
 		<% @data_response[:data]["items"].each do |google_calendar| %>
 		   content_new_list += '<div class="agenda_box">';
@@ -18,6 +17,5 @@ jQuery("#modal_div").dialog("close");
       jQuery("#calendar_name").val("");
      console.log(content_new_list);
 <% else %>
-	console.log("Falha!");
 	alert("<%= @data_response[:error] %>");
 <% end %>

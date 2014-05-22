@@ -7,8 +7,8 @@ class SchedulesController < ApplicationController
     # treat this a better way later
     unless user.email == "guicruz.zs@gmail.com"
       puts "..................... common user"
-      @schedules = Schedule.joins("LEFT JOIN interests ON interests.id = schedules.interest_id 
-                                   LEFT JOIN agendas ON agendas.id = interests.agenda_id AND agendas.user_id = #{user.id}")
+      @schedules = Schedule.joins("RIGHT JOIN interests ON interests.id = schedules.interest_id 
+                                   RIGHT JOIN agendas ON agendas.id = interests.agenda_id AND agendas.user_id = #{user.id}")
     else
       puts "..................... admin user"
       @schedules = Schedule.all

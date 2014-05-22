@@ -117,10 +117,11 @@ h1{
 
 #main_content .offer_box{  
   background-color: #dbdedc;
-  border-radius: 5px;
-  border: solid 1px #000;
+  /*border-radius: 5px;
+  border: solid 1px #000;*/
   padding: 2px 10px;  
-  margin-bottom: 3px;
+  margin-bottom: 7px;
+  box-shadow: 1px 1px 3px;
 }
 
 #main_content .twitter_address{  
@@ -382,9 +383,10 @@ div.field, div.actions {
 
 .index_list{
   background-color: #dbdedc;
-  border: solid 1px #000;
+  /*border: solid 1px #000;
+  border-radius: 5px;*/
   padding: 10px 2px;
-  border-radius: 5px;
+  box-shadow: 1px 1px 3px;
 }
 
 .empty_list{

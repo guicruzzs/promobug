@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-ruby '1.8.7'
+# ruby '1.8.7'
 
 gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'mysql2', '~> 0.2.6'
+gem 'mysql2', '~> 0.2.6'
 
 gem 'devise', '1.5.3'
 
@@ -15,8 +15,8 @@ gem 'twitter', '4.7.0'
 
 gem 'whenever', '0.8.2'
 
-gem 'pg'
-gem 'rails_12factor'
+# gem 'pg'
+# gem 'rails_12factor'
 
 #gem 'system_timer', '1.2.4'
 

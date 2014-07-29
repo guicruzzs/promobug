@@ -22,6 +22,7 @@ class HomeController < ApplicationController
   	@data_response = GoogleCalendar.list_agendas(token_access)
   end
 
+  #for emergencies, a remote call
   def check_new_offers
     success = false
     if params[:release_code] == RELEASE_CODE

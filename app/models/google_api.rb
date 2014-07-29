@@ -9,7 +9,8 @@ class GoogleApi
 				  'response_type'=> 'code',
 				  'client_id'=>     CLIENT_ID,
 				  'scope'=>         "#{URL_GOOGLE_API}auth/calendar #{URL_GOOGLE_API}auth/userinfo.email #{URL_GOOGLE_API}auth/userinfo.profile",
-				  'access_type'=>   'offline'
+				  'access_type'=>   'offline',
+				  'approval_prompt'=> 'force'
 				  }
 		
 		body = GoogleApi.get(uri,params)

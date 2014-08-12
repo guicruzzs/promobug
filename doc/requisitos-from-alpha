@@ -1,3 +1,14 @@
 # Opção de criar nova agenda do Google na tela de cadastro de filtros
 # Fornecer outras formas de push https://pushover.net/ obs: esse é pago
 # Criar limitações de quantidade de tags
+# Desenvolver a edição de filtros
+# Excesso de filtros quebra layout
+# A tela de filtros está poluída( talvez caiba aqui uma aba de histórico de filtros)
+# Falta a opção de ativar filtros antigos
+# Regexp do match no caso de filtro com "iOS" e  promoção de "fios"
+
+# [7/30/14, 9:32:26 AM] Richard Frank: acho que o sistema vai ficar melhor gui.. se vc transformar o historico
+# [7/30/14, 9:32:29 AM] Richard Frank: em primeira pagina
+# [7/30/14, 9:32:38 AM] Richard Frank: saca? tipo feed mesmo
+# [7/30/14, 9:32:55 AM] Richard Frank: a pessoa entra no site e ja tem os que ele capturou de cara
+# [7/30/14, 9:33:26 AM] Richard Frank: inverter historico com filtro no index

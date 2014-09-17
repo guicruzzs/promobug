@@ -22,7 +22,7 @@ class GoogleCalendar
 		
 		start_time =  (Time.now).xmlschema
 		end_time =   (Time.now + 5.minutes).xmlschema
-		summary = "#{offer.twitter_message[0..(62 - offer.link.size - agenda.name.size)]}... #{offer.link}"
+		summary = "#{offer.link} #{offer.twitter_message[0..(62 - offer.link.size - agenda.name.size)]}..."
 		
 		data = {:end              => {:dateTime=> end_time},
 				:start            => {:dateTime=> start_time},

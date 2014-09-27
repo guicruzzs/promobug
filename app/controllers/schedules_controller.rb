@@ -7,9 +7,9 @@ class SchedulesController < ApplicationController
     # treat this a better way later
     unless user.email == "guicruz.zs@gmail.com"
       @schedules = Schedule.joins("INNER JOIN interests ON interests.id = schedules.interest_id 
-                                   INNER JOIN agendas ON agendas.id = interests.agenda_id AND agendas.user_id = #{user.id}")
+                                   INNER JOIN agendas ON agendas.id = interests.agenda_id AND agendas.user_id = #{user.id}").order('schedules.created_at DESC')
     else
-      @schedules = Schedule.all
+      @schedules = Schedule.order('schedules.created_at DESC')
     end
 
     respond_to do |format|

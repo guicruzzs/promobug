@@ -107,6 +107,7 @@ h1{
   margin-right: auto;
   height: 100%;
   box-shadow: 3px 3px 40px;
+  overflow: auto;
 }
 
 #main_content{

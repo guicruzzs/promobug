@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524231445) do
+ActiveRecord::Schema.define(:version => 20150709202339) do
 
   create_table "agendas", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130524231445) do
     t.datetime "updated_at"
     t.string   "wanted_regexp"
     t.string   "unwanted_regexp"
+    t.integer  "user_id"
   end
 
   create_table "offers", :force => true do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130524231445) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
     t.string   "name"
     t.boolean  "status"
     t.datetime "created_at"
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130524231445) do
     t.integer  "expires_in"
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

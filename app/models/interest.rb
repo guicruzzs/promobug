@@ -1,17 +1,18 @@
 class Interest < ActiveRecord::Base
   belongs_to :agenda
+  belongs_to :user
   has_many :schedules
   
   validate :fill_out_wishes
   before_save :load_regexp
 
-  STATUS_ATIVO = true
-  STATUS_INATIVO = false
+  ACTIVE_STATUS = true
+  INATCIVE_STATUS = false
 
-  named_scope :active, :conditions=>{:status=> Interest::STATUS_ATIVO}
+  named_scope :active, :conditions=>{:status=> Interest::ACTIVE_STATUS}
 
-  def inactivate()
-    self.status = Agenda::STATUS_INATIVO
+  def inactivate
+    self.status = Interest::INATCIVE_STATUS
     self.save
   end
 
@@ -37,13 +38,15 @@ class Interest < ActiveRecord::Base
   def fill_out_wishes
     puts "FILL OUT WISHES"
     if self.wanted_regexp.blank?
-      errors.add " ", "É obrigatório o preenchimento ao menos do(s) Desejado(s)"
+      errors.add(:filter, "É obrigatório o preenchimento ao menos do(s) Desejado(s)")
     end
   end
 
   def load_regexp
     puts "LOAD REGEXP"
-  	if self.status == Interest::STATUS_ATIVO
+  	if self.status == Interest::ACTIVE_STATUS
+      self.wanted_regexp = "" if self.wanted_regexp.nil?
+      self.unwanted_regexp = "" if self.unwanted_regexp.nil?
       self.wanted = self.wanted_regexp.gsub(",", ",\s")
       self.unwanted = self.unwanted_regexp.gsub(",", ",\s")
       load_wanted_wanted_regexp

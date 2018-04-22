@@ -12,14 +12,14 @@ Promobug::Application.routes.draw do
   root :to => "home#index"
 
   # home
-  match 'google_login' =>             'home#google_login'
-  match 'google_login_response' =>    'home#google_login_response'
-  match 'list_google_agendas' =>      'home#list_google_agendas'
-  match 'check_new_offers' =>         'home#check_new_offers'
+  get 'google_login' =>             'home#google_login'
+  get 'google_login_response' =>    'home#google_login_response'
+  get 'list_google_agendas' =>      'home#list_google_agendas'
+  get 'check_new_offers' =>         'home#check_new_offers'
 
   #agendas
-  match 'agendas/inactivate/:id' =>   'agendas#inactivate'
-  match 'google_agenda/create_google_agenda' => 'agendas#create_google_agenda'
+  post 'agendas/inactivate/:id' =>   'agendas#inactivate'
+  post 'google_agenda/create_google_agenda' => 'agendas#create_google_agenda'
 
   namespace :api do
     post "user/login" =>              "users#login"

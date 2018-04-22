@@ -18,8 +18,8 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :environment, 'development'
+# set :environment, 'development'
 
-every 1.minute do
-   runner 'Offer.verify'
-end
+# every 1.minute do
+#    runner 'Offer.verify'
+# end

@@ -1,0 +1,22 @@
+development: &default
+  url_base: "http://www.google.com.br/"
+
+  google:
+    url_oauth: "https://accounts.google.com/o/oauth2/"
+    url_api: "https://www.googleapis.com/"
+    url_calendar: "https://www.googleapis.com/calendar/v3/"
+    client_id: '342833357798-4kci6gd82piori8d124tnvvuam7t6ugi.apps.googleusercontent.com'
+    client_secret: 'SjHhFjRhBlnL8sbYQpQ6fuNj'
+    api_key: "AIzaSyBFheU3FLhas3JYYUcVu2Z9fvKleKuZKvA"
+
+  crypt_key: "b678ijbvft6uir56ujft67i78oqoiu212013hfwdo0"
+
+  release_code: "a89kjh324kj234k09fddf0s8j234kia"
+
+production:
+  <<: *default
+  url_base: "http://promobug.ddns.net/google_login_response"
+
+  google:
+    client_id: '342833357798-tirkltmccr2dhdbea1curhpcain7aurj.apps.googleusercontent.com'
+    client_secret: 'CoDt1nhyhck8RMviMQxQ29F7'

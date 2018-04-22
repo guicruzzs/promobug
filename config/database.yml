@@ -1,25 +1,18 @@
-common: &common
-  adapter: mysql2
+default: &default
+  adapter: postgresql
   encoding: utf8
   reconnect: true
   pool: 5
-  username: root
-  password: password
+  username: postgres
+  password: postgres
   host: localhost
 
 development:
-  <<: *common
+  <<: *default
   database: promobug_development
 production:
-  <<: *common
+  <<: *default
   database: promobug_production
 test:
-  <<: *common
+  <<: *default
   database: promobug_test
-
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   # For details on connection pooling, see rails configuration guide
-#   # http://guides.rubyonrails.org/configuring.html#database-pooling
-#   pool: 5
